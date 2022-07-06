@@ -1,25 +1,17 @@
 exports.config = {
-  runner: 'local',
-  framework: 'mocha',
-  reporters: ['spec'],
-  specs: ['./specs/*.test.js'],
+  runner: "local",
+  framework: "mocha",
+  mochaOpts: {
+    timeout: 40000,
+  },
+  reporters: ["spec"],
+  specs: ["./specs/*.test.js"],
 
-  logLevel: 'warn',
+  logLevel: "warn",
   capabilities: [
     {
       maxInstances: 5,
-      browserName: 'firefox',
-      'moz:firefoxOptions': {
-        args: ['-headless']
-      }
-    }
+      browserName: "chrome",
+    },
   ],
-
-  onPrepare() {
-    require('geckodriver').start();
-  },
-
-  onComplete() {
-    require('geckodriver').stop();
-  }
 };
