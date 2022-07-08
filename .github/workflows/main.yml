@@ -17,6 +17,6 @@ jobs:
       - name: Percy test
         uses: percy/exec-action@master
         with:
-          command: "percy exec -- wdio --base-url=https://www.saucedemo.com/"
+          command: "percy exec -- wdio"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

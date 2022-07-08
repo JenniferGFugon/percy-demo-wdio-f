@@ -9,7 +9,7 @@ exports.config = {
     timeout: 40000,
   },
   reporters: ["spec"],
-  specs: ["./specs/*login.test.js"],
+  specs: ["./specs/*.test.js"],
 
   logLevel: "warn",
   capabilities: [
