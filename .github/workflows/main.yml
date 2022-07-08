@@ -9,7 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1.0.0
+        uses: actions/checkout@v2
+      - name: node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
       - name: Install dependencies
         run: yarn
       - name: Percy test
