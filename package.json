@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/jfugon/percy-demo-wdio#readme",
   "dependencies": {
-    "chromedriver": "^101.0.0"
+    "chromedriver": "^101.0.0",
+    "wdio-chromedriver-service": "^7.3.2"
   }
 }
