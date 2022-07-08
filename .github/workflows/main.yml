@@ -8,11 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1.0.0
       - name: Install dependencies
         run: yarn
-       - name: Percy Test
+      - name: Percy test
         uses: percy/exec-action@v0.3.1
         with:
-          command: 'npm test'
+          command: "percy exec -- wdio"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
