@@ -18,6 +18,11 @@ exports.config = {
       browserName: "chrome",
     },
   ],
+  baseUrl: "https://www.saucedemo.com",
+  waitforTimeout: 10000,
+  services: ["chromedriver"],
+  timeout: 60000,
+
   onPrepare() {
     // Start local server to host app under test.
     server = httpServer.createServer({ root: `${__dirname}/../` });
