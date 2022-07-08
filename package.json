@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfugon/percy-demo-wdio"
+    "url": "git+https://github.com/jfugon/percy-example-wdio"
   },
   "author": "Jennifer Guerrero",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jfugon/percy-demo-wdio/issues"
+    "url": "https://github.com/jfugon/percy-example-wdio/issues"
   },
-  "homepage": "https://github.com/jfugon/percy-demo-wdio#readme",
+  "homepage": "https://github.com/jfugon/percy-example-wdio#readme",
   "dependencies": {
     "chromedriver": "^101.0.0"
   }
