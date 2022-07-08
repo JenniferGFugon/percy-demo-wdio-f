@@ -19,6 +19,6 @@ jobs:
       - name: Percy test
         uses: percy/exec-action@v0.3.1
         with:
-          command: "percy exec  --wdio"
+          command: "percy exec  -- wdio"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
