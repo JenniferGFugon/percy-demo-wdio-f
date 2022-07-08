@@ -8,9 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Percy Test
+      - name: Install dependencies
+        run: yarn
+       - name: Percy Test
         uses: percy/exec-action@v0.3.1
         with:
-          command: "run test"
+          command: 'npm test'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
