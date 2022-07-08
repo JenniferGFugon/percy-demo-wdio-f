@@ -1,3 +1,7 @@
+const httpServer = require("http-server");
+const PORT = 8000;
+let server = null;
+
 exports.config = {
   runner: "local",
   framework: "mocha",
@@ -5,7 +9,7 @@ exports.config = {
     timeout: 40000,
   },
   reporters: ["spec"],
-  specs: ["./specs/*.test.js"],
+  specs: ["./specs/*login.test.js"],
 
   logLevel: "warn",
   capabilities: [
@@ -14,4 +18,13 @@ exports.config = {
       browserName: "chrome",
     },
   ],
+  onPrepare() {
+    // Start local server to host app under test.
+    server = httpServer.createServer({ root: `${__dirname}/../` });
+    server.listen(PORT);
+  },
+
+  onComplete() {
+    server.close();
+  },
 };

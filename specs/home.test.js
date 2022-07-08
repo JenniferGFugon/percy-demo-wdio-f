@@ -1,31 +1,23 @@
 const httpServer = require("http-server");
 const percySnapshot = require("@percy/webdriverio");
+const sauceLabHomePage = require("../pages/sauceLab.home.page.js");
 const sauceLabLoginPage = require("../pages/sauceLab.login.page.js");
 
 describe("home test", function () {
-  const PORT = 8000;
   const TEST_URL = `https://www.saucedemo.com/`;
 
-  let server = null;
-
-  before(() => {
-    // Start local server to host app under test.
-    server = httpServer.createServer({ root: `${__dirname}/../` });
-    server.listen(PORT);
-  });
-
-  after(() => {
-    // Shut down the HTTP server.
-    server.close();
-  });
-
-  it("the user at the login  page", async function () {
-    await browser.url(TEST_URL);
-    expect(await browser.getTitle()).toEqual("Swag Labs");
-    await percySnapshot(browser, "loads the souce lab page");
-  });
-
-  it("The user login into the page", async function () {
+  it("the user at sauce labs homepage", async function () {
+    await browser.url("https://www.saucedemo.com/");
     await sauceLabLoginPage.Login();
-    await percySnapshot(browser, "home page");
+    expect(await browser.getTitle()).toEqual("Swag Labs");
+    await percySnapshot(browser, "home page displayed");
   });
+
+  it("The user add products to the shopping cart", async function () {
+    await browser.url("https://www.saucedemo.com/inventory.html");
+    await sauceLabHomePage.ClickFirstProduct();
+    await sauceLabHomePage.ClickSecondProduct();
+    expect(await sauceLabHomePage.shoppingCartBadge.getText()).toEqual("2");
+    await percySnapshot(browser, "Shopping cart badge increase");
+  });
+});

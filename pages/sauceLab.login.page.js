@@ -35,7 +35,7 @@ class SauceLabLoginPage extends Page {
   async Login() {
     //Type the username
     await this.usernameInput.waitForDisplayed();
-    await this.SetUsername("standard");
+    await this.SetUsername("standard_user");
     //Type the password
     await this.passwordInput.waitForDisplayed();
     await this.SetPassword("secret_sauce");
