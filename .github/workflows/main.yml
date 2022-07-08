@@ -17,6 +17,6 @@ jobs:
       - name: Percy test
         uses: percy/exec-action@master
         with:
-          command: "percy exec -- wdio"
+          command: "percy exec -- wdio --port=8020"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
